@@ -1,0 +1,52 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Modguard API",
+    "version": "1.0"
+  },
+  "paths": {
+    "/moderate": {
+      "post": {
+        "summary": "Moderate text",
+        "description": "Moderate a piece of text to determine if it is toxic or non-toxic.",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Text to be moderated",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "text": {
+                  "type": "string",
+                  "description": "The text to moderate",
+                  "example": "Example text to moderate"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful moderation"
+          }
+        }
+      }
+    },
+    "/metrics": {
+      "get": {
+        "summary": "Get metrics",
+        "description": "Get various metrics about the API usage.",
+        "responses": {
+          "200": {
+            "description": "Successful retrieval of metrics"
+          }
+        }
+      }
+    }
+  }
+}
